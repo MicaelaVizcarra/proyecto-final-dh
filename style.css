@@ -1,0 +1,259 @@
+/* font-family: "Playfair Display", serif;
+font-family: "Kanit", serif; */
+
+/* Normalizacion */
+/* Hacer un reseteo de algunas caracteristicas para que no tome el default que ofrece el navegador */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*Hace que el padding y el border no afecten al ancho y alto del elemento*/
+    font-family: "Playfair Display", serif;
+    list-style: none; /*Quita los puntos y decoracion de las listas*/
+    text-decoration: none; /*Esto quita el subrayado de los enlaces*/
+    color: white;
+}
+
+body {
+    background-color: black; /*TODO (tarea pendiente): borrar cuando tengamos el fondo final */
+}
+
+header {
+    position: fixed; /*Hace que el header se quede fijo en la parte superior*/
+    right: 0;
+    top: 0;
+    z-index: 100; /*esto hace que el header se muestre por encima*/
+    width: 100%;
+    display: flex; /*hace que los elementos se acomoden en linea*/
+    align-items: center; /*Centra verticalmente*/
+    justify-content: space-between; /*los elementos se separan*/
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 30px;
+    /* font-weight: 800; */
+}
+
+.navlist {
+    display: flex; /*La lista queda acomodada una al lado de la otra*/
+}
+
+.navlist a {
+    margin-left: 60px; /*Para separar las palabras de la lista*/
+    font-size: 20px;
+    border-bottom: 2px solid transparent ;
+    transition: all .5s ease; /*las transiciones se aplica a toda la lista, dura 5 segundos y es la transicion ease*/
+}
+
+.navlist a:hover {
+    border-bottom: 2px solid #7D3577; /*subrayado que aparece cuando estamos encima con el mouse*/
+}
+
+#menu-icon {
+    display: none; /*lo pongo en none para que solo se vea cuando la pagina este colapsada*/
+}
+
+#menu-icon {
+    font-size: 35px;
+    z-index: 101; /*para que este sobre el header*/
+    cursor: pointer; /*para que aoarezca la manito cuando ponemos el mouse encima*/
+}
+
+#menu-toggle {
+    display: none; /*para que el checkbox no aparezca nunca*/
+}
+
+/*.menu-icon-action {
+    display: none; /*para que no se le pueda hacer click
+}*/
+
+.hero {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh; /*no queremos que ocupe menos de lo que se ve*/
+    background: linear-gradient(245.59deg, #D4A8D6 0%, #BA84BC 25%, #A55CAA 75%); /*fondo de color gradiente*/
+    position: relative; /*para que sea relativo al contenedor (nos permite usar top, bottom, left y right)*/
+    display: grid; /*para que el hero se pueda dividir en dos columnas*/
+    grid-template-columns: 1fr 1fr; /*las 2 columnas*/
+    align-items: center; /*para alinear verticalmente el hero*/
+    gap: 2rem; /*para que haya espacio de 2 rem entre las dos columnas*/
+}
+
+section {
+    padding: 0 8%;
+}
+
+.hero-text h5 {
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h1 {
+    font-family: "Kanit", serif;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+
+.hero-text p {
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.hero-img img {
+    width: 200px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all .5s linear; /*hace que la transicion sea lineal*/
+}
+
+.hero-img img:hover {
+    width: 250px;
+    opacity: 0.6;
+}
+
+.hero-text a {
+    display: inline-block; /*permite que se pueda dar ancho y alto*/
+    background-color: #7D3577;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.icons {
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i {
+    display: block;
+    margin: 26px 0;
+    font-size: 24px;
+    transition: all 0.5s ease;
+}
+
+.icons i:hover {
+    color: #7D3577;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color: #7D3577; /*no se si lo quiero*/
+    border-radius: 30px;
+    transition: all .5s ease;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 992px) {
+
+    section {
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text {
+        padding-top: 0;
+    }
+
+    .hero-img {
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 60%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p {
+        font-size: 70%;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .menu-icon-action {
+        display: block;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img {
+        margin: 0;
+    }
+
+    .hero {
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .navlist {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: #a55caaae;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all .5s ease-out;
+    }
+
+    .navlist a {
+        display: block;
+        margin: 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul {
+        right: 0;
+    }
+
+}
